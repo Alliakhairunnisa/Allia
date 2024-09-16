@@ -1,42 +1,38 @@
 #include <iostream>
-#include <iomanip>
-
 using namespace std;
 
 int main() {
-    char tipeRumah, jenisPembayaran;
-    int hargaTunai, angsuranPerBulan;
+    char tipeRmh, jenisPmbyran;
+    long hrgaTunai, angsuranPerBln, ttlHrgaRmh;
 
-    // Input tipe rumah dan jenis pembayaran
-    cout << "Masukkan Tipe Rumah (A/B/C/D): ";
-    cin >> tipeRumah;
+    cout << "Masukkan Tipe Rumah (A, B, C, D): ";
+    cin >> tipeRmh;
     cout << "Masukkan Jenis Pembayaran (T = Tunai, K = Kredit): ";
-    cin >> jenisPembayaran;
+    cin >> jenisPmbyran;
 
-    // Tentukan harga sesuai tipe rumah
-    if (tipeRumah == 'A' || tipeRumah == 'a') {
-        hargaTunai = 50000000;
-        angsuranPerBulan = 500000;
-    } else if (tipeRumah == 'B' || tipeRumah == 'b') {
-        hargaTunai = 75000000;
-        angsuranPerBulan = 750000;
-    } else if (tipeRumah == 'C' || tipeRumah == 'c') {
-        hargaTunai = 85000000;
-        angsuranPerBulan = 850000;
-    } else if (tipeRumah == 'D' || tipeRumah == 'd') {
-        hargaTunai = 100000000;
-        angsuranPerBulan = 1000000;
+    if (tipeRmh == 'A' || tipeRmh == 'a') {
+        hrgaTunai = 50000000;
+        angsuranPerBln = 500000;
+    } else if (tipeRmh == 'B' || tipeRmh == 'b') {
+        hrgaTunai = 75000000;
+        angsuranPerBln = 750000;
+    } else if (tipeRmh == 'C' || tipeRmh == 'c') {
+        hrgaTunai = 85000000;
+        angsuranPerBln = 850000;
+    } else if (tipeRmh == 'D' || tipeRmh == 'd') {
+        hrgaTunai = 100000000;
+        angsuranPerBln = 1000000;
     } else {
         cout << "Tipe rumah tidak valid." << endl;
         return 1;
     }
 
-    // Output sesuai jenis pembayaran
-    if (jenisPembayaran == 'T') {
-        cout << "Harga Rumah Tunai: Rp " << hargaTunai << endl;
-    } else if (jenisPembayaran == 'K') {
-        cout << "Angsuran per Bulan: Rp " << angsuranPerBulan << endl;
-        cout << "Total Harga Kredit (10 tahun): Rp " << angsuranPerBulan * 12 * 10 << endl;
+    if (jenisPmbyran == 'T' || jenisPmbyran == 't') {
+        cout << "Harga Rumah Tunai: Rp " << hrgaTunai << endl;
+    } else if (jenisPmbyran == 'K' || jenisPmbyran == 'k') {
+        ttlHrgaRmh = 12 * angsuranPerBln * 10;
+        cout << "Angsuran per Bulan: Rp " << angsuranPerBln << endl;
+        cout << "Total Harga Rumah (10 tahun): Rp " << ttlHrgaRmh << endl;
     } else {
         cout << "Jenis pembayaran tidak valid." << endl;
         return 1;
