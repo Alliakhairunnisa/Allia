@@ -32,9 +32,9 @@ int main() {
     } else if (jenisPmbyran == 'K' || jenisPmbyran == 'k') {
         ttlHrgaRmh = 12 * angsuranPerBln * 10;
         cout << "Angsuran per Bulan: Rp " << angsuranPerBln << endl;
-        cout << "Total Harga Rumah (10 tahun): Rp " << ttlHrgaRmh << endl;
+        cout << "Total Harga Rumah (10 tahun): Rp" << ttlHrgaRmh << endl;
     } else {
-        cout << "Jenis pembayaran tidak valid." << endl;
+        cout << "jenis pembayaran tidak valid." << endl;
         return 1;
     }
 
