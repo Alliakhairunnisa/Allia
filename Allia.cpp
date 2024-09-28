@@ -1,42 +1,40 @@
-#include <iostream>
+#include<iostream>
+#include<iomanip>
+#include<string>
+
 using namespace std;
 
-int main() {
-    char tipeRmh, jenisPmbyran;
-    long hrgaTunai, angsuranPerBln, ttlHrgaRmh;
+int main()
+{
+    const int JmlhSalesman=10;
+    string nama[10];
+    float penjualan [10],komisi[10],totalkomisi=0.0;
+    int i,jlhdata=10;
 
-    cout << "Masukkan Tipe Rumah (A, B, C, D): ";
-    cin >> tipeRmh;
-    cout << "Masukkan Jenis Pembayaran (T = Tunai, K = Kredit): ";
-    cin >> jenisPmbyran;
+    cout<<"KOMISI SALESMAN PT.MURAH HATI"<<endl;
+    cout<<"❦︎❦︎❦︎❦︎❦︎❦︎❦︎❦︎❦︎❦︎❦︎❦︎❦︎❦︎❦︎❦︎❦︎❦︎❦︎❦︎"<<endl;
+    cout<<setprecision(12);
+    for(int i=0;i<jlhdata;i++) {
+        cout<<"Data Ke-"<<i+1<<endl;
+        cout<<"==================================="<<endl;
+        cout<<"Nama Salesman : ";
+        cin>>nama[i];
+        cout<<"Total Penjualan : ";
+        cin>>penjualan [i];
 
-    if (tipeRmh == 'A' || tipeRmh == 'a') {
-        hrgaTunai = 50000000;
-        angsuranPerBln = 500000;
-    } else if (tipeRmh == 'B' || tipeRmh == 'b') {
-        hrgaTunai = 75000000;
-        angsuranPerBln = 750000;
-    } else if (tipeRmh == 'C' || tipeRmh == 'c') {
-        hrgaTunai = 85000000;
-        angsuranPerBln = 850000;
-    } else if (tipeRmh == 'D' || tipeRmh == 'd') {
-        hrgaTunai = 100000000;
-        angsuranPerBln = 1000000;
-    } else {
-        cout << "Tipe rumah tidak valid." << endl;
-        return 1;
+        if(penjualan [i]<=500000) {
+          komisi[i]=0.10*penjualan [i];
+        } else {
+            komisi[i]=0.10*500000+0.15*(penjualan[i]-500000);
+        }
+        totalkomisi+=komisi[i];
+        cout<<"Komisi untuk "<<nama[i]<<" : "<<komisi[i]<<endl;
+        cout<<"==================================="<<endl;
     }
-
-    if (jenisPmbyran == 'T' || jenisPmbyran == 't') {
-        cout << "Harga Rumah Tunai: Rp " << hrgaTunai << endl;
-    } else if (jenisPmbyran == 'K' || jenisPmbyran == 'k') {
-        ttlHrgaRmh = 12 * angsuranPerBln * 10;
-        cout << "Angsuran per Bulan: Rp " << angsuranPerBln << endl;
-        cout << "Total Harga Rumah (10 tahun): Rp" << ttlHrgaRmh << endl;
-    } else {
-        cout << "jenis pembayaran tidak valid." << endl;
-        return 1;
-    }
-
+    
+    cout<<"--------------------------------------------------------------------------"<<endl;
+    cout<<"Total komisi yang dibayarkan PT.MURAH HATI :"<<totalkomisi<<endl;
+    cout<<"--------------------------------------------------------------------------"<<endl;
+   
     return 0;
 }
